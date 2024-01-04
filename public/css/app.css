@@ -44,6 +44,26 @@ a:focus {
     }
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #555;
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -105,8 +125,9 @@ a:focus {
     font-family: var(--title);
 }
 
-.home-button {
+.button-outlined {
     margin-top: 2rem;
+    width: fit-content;
     outline: none;
     border: solid 1px var(--green);
     background-color: white;
@@ -119,7 +140,7 @@ a:focus {
     box-shadow: 2px 2px 4px 0px var(--green);
 }
 
-.home-button:hover {
+.button-outlined:hover {
     box-shadow: 4px 4px 4px 0px var(--green);
     transform: translate(0px, -1px);
 }

@@ -3,7 +3,7 @@
         <a class="logo" href="/">Inkwell</a>
         <ul class="nav-link--wrapper">
             <a class="link" href="/register">Register</a>
-            <a class="link" href="login">Login</a>
+            <a class="link" href="/login">Login</a>
         </ul>
     </nav>
 
@@ -12,7 +12,9 @@
             <p class="home-header--title"><span class="quill">Quill</span> Ready?</p>
             <p class="home-header--subtitle" style="margin-bottom: 10px;">Inkwell Awaits Your Tale.</p>
             <p class="home-header--subtitle">Your Ideas, Our Ink. Let's Start a Colorful Journey!</p>
-            <button class="home-button">Dive In</button>
+            <div class="button-outlined">
+                <a href="/register">Dive In</a>
+            </div>
         </div>
     </section>
 
