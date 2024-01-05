@@ -13,7 +13,7 @@
 <section class="profile">
     <div class="edit-profile-container">
         <div class="profile-picture-container">
-            <img src="" class="profile-picture" id="profilePicturePreview">
+            <img src="" class="profile-picture" id="preview">
             <div class="file-input-container">
                 <input type="file" id="profilePicture" name="profilePicture" accept="image/jpeg, image/png" class="file-input" onchange="displayImage(this)">
                 <label for="profilePicture" class="choose-image-button">Choose Image</label>

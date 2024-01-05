@@ -22,3 +22,7 @@ Route::get("/login", function () {
 Route::get("/profile", function () {
     return view("Profile")->withLayout("layouts.DashboardLayout");
 });
+
+Route::get("/compose", function () {
+    return view("Compose")->withLayout("layouts.DashboardLayout");
+});
