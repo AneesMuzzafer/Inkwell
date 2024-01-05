@@ -12,7 +12,7 @@
             <p class="home-header--title"><span class="quill">Quill</span> Ready?</p>
             <p class="home-header--subtitle" style="margin-bottom: 10px;">Inkwell Awaits Your Tale.</p>
             <p class="home-header--subtitle">Your Ideas, Our Ink. Let's Start a Colorful Journey!</p>
-            <div class="button-outlined">
+            <div class="button-outlined" style="margin-top: 2rem;">
                 <a href="/register">Dive In</a>
             </div>
         </div>
@@ -27,7 +27,11 @@
                     <span class="story-mins">2 mins read</span>
                 </div>
                 <div style="flex:1;">
-                    <div class="story-title">Autem aut sint voluptatibus.bus Autem aut sint voluptatibus Autem aut</div>
+                    <div class="story-title">
+                        <a href="/story/1">
+                            Autem aut sint voluptatibus.bus Autem aut sint voluptatibus Autem aut
+                        </a>
+                    </div>
                     <div class="story-content">In 2021 I landed my dream job. Working at Apple, the holy grail of minimalistic design, innovation and creativity yoyo yoyo. A place where misfits have a seat on the table and In 2021 I landed my dream job. Working at Apple, the holy grail of minimalistic design here, innovation and creativity. A place where misfits have a seat on the table and In 2021 I landed my dream job. Working at Apple, the holy grail of minimalistic design, innovation and creativity. A place where misfits have a seat on the table and </div>
                 </div>
                 <div class="story-footer">
@@ -49,7 +53,11 @@
                     <span class="story-mins">2 mins read</span>
                 </div>
                 <div style="flex:1;">
-                    <div class="story-title">Autem aut sint voluptatibus.bus Autem aut sint voluptatibus Autem aut</div>
+                <div class="story-title">
+                        <a href="/story/2">
+                            Autem aut sint voluptatibus.bus Autem aut sint voluptatibus Autem aut
+                        </a>
+                    </div>
                     <div class="story-content">In 2021 I landed my dream job. Working at Apple, the holy grail of minimalistic design, innovation and creativity yoyo yoyo. A place where misfits have a seat on the table and In 2021 I landed my dream job. Working at Apple, the holy grail of minimalistic design here, innovation and creativity. A place where misfits have a seat on the table and In 2021 I landed my dream job. Working at Apple, the holy grail of minimalistic design, innovation and creativity. A place where misfits have a seat on the table and </div>
                 </div>
                 <div class="story-footer">

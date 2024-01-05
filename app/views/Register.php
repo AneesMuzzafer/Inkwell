@@ -25,7 +25,7 @@
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" id="confirm-password" name="confirm-password" class="input-field" required>
 
-                    <div style="text-align: center;">
+                    <div style="text-align: center; margin-top: 2rem;">
                         <button type="submit" class="button-outlined">Register</button>
                     </div>
                 </form>

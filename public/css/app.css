@@ -26,6 +26,7 @@ a:focus {
     --bg-dark: rgba(131, 184, 150, 0.44);
     --green: #49805C;
     --px: 300px;
+    --spx: 500px;
     --title: 'Neucha', cursive;
     --raleway: 'Raleway', sans-serif;
     --gray: #C2C2C2;
@@ -71,8 +72,6 @@ a:focus {
     height: 80px;
     padding: 0px var(--px);
     border-bottom: solid 1px var(--green);
-    /* background-color: var(--shaded);
-    box-shadow: 4px 4px 4px 20px var(--green); */
 }
 
 .logo {
@@ -83,6 +82,7 @@ a:focus {
 
 .nav-link--wrapper {
     display: flex;
+    align-items: center;
     gap: 3rem;
 }
 
@@ -126,12 +126,11 @@ a:focus {
 }
 
 .button-outlined {
-    margin-top: 2rem;
     width: fit-content;
     outline: none;
     border: solid 1px var(--green);
     background-color: white;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     font-weight: 500;
     padding: 10px 48px;
     font-size: 18px;
@@ -281,26 +280,11 @@ label {
     border-radius: 8px;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .input-field:focus {
-    border-color: var(--green);
-}
-
-.home-buttonx {
-    background-color: var(--green);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 12px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.home-buttonx:hover {
-    background-color: #007d00;
+    border-color: darkgreen;
 }
 
 .form-link {
@@ -309,4 +293,138 @@ label {
 
 .form-link:hover {
     text-decoration: underline;
+}
+
+.back-home {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    align-items: center;
+    padding: 0 var(--spx);
+    margin: 3rem 0px;
+    cursor: pointer
+}
+
+.back-home:hover {
+    text-decoration: underline;
+}
+
+.story {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-head {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.story-head-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 1rem;
+}
+
+.story-head-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.story-img-lg {
+    width: auto;
+    height: 425px;
+}
+
+.likes-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.story-content-lg {
+    line-height: 34px;
+    font-size: 18px;
+}
+
+.story-divider {
+    margin: 0 var(--px);
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: solid 1px var(--gray);
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.profile {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.edit-profile-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    gap: 0.5rem;
+}
+
+.profile-picture-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+
+.profile-picture {
+    width: 160px;
+    height: 160px;
+    background-image: url("../assets/profile_placeholder.png");
+    background-size: contain;
+    object-fit: cover;
+    border-radius: 80px;
+    border: solid 1px var(--text-gray)
+}
+
+.file-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.file-input {
+    display: none;
+}
+
+.choose-image-button {
+    color: var(--green);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.choose-image-button:hover {
+    color: darkgreen;
 }
