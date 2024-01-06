@@ -16,6 +16,7 @@ class DatabaseMigration
         $this->createUserTable();
         $this->createCategoriesTable();
         $this->createStoriesTable();
+        $this->createAccessTokensTable();
     }
 
     public function down()
@@ -23,6 +24,7 @@ class DatabaseMigration
         $this->deleteStoriesTable();
         $this->deleteCategoriesTable();
         $this->deleteUsersTable();
+        $this->createAccessTokensTable();
     }
 
     public function execute($sql, $table = "", $action = "Create")
@@ -93,6 +95,26 @@ class DatabaseMigration
     public function deleteStoriesTable()
     {
         $sql = "DROP TABLE IF EXISTS stories";
+        $this->execute($sql, "stories", "Delete");
+    }
+
+    public function createAccessTokensTable()
+    {
+        $sql = "CREATE TABLE access_tokens (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+            access_token VARCHAR(255) NOT NULL,
+            expiration_time TIMESTAMP NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE KEY unique_user_session (user_id, access_token),
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+        )";
+        $this->execute($sql, "access_tokens");
+    }
+
+    public function deleteAccessTokensTable()
+    {
+        $sql = "DROP TABLE IF EXISTS access_token";
         $this->execute($sql, "stories", "Delete");
     }
 }

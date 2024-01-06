@@ -1,26 +1,16 @@
-<nav class="nav" style="padding: 0 100px;">
-    <a class="logo" href="/">Inkwell</a>
-    <div class="nav-link--wrapper">
-        <!-- <a class="button-outlined" href="/compose">Compose</a> -->
-        <a class="link" href="/profile">
-            <img class="story-user-image" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-        </a>
-    </div>
-</nav>
-
 <div style="font-size: 24px; font-weight: 600; padding: 20px; padding-left: 100px;">Compose</div>
 
 <section class="compose">
-    <div class="write-container">
+    <form class="write-container" method="post" action="/compose">
         <div>
             <button type="submit" class="button-outlined">Publish</button>
         </div>
 
         <label for="category" style="margin-top: 2rem;">Category</label>
         <select id="category" name="category" class="category-dropdown">
-            <option value="fiction">Fiction</option>
-            <option value="non-fiction">Non-Fiction</option>
-            <option value="poetry">Poetry</option>
+            <option value="1">Fiction</option>
+            <option value="2">Non-Fiction</option>
+            <option value="3">Poetry</option>
         </select>
 
         <label for="title" style="margin-top: 2rem;">Title</label>
@@ -36,5 +26,5 @@
             </div>
             <img src="../assets/camera.jpg" class="compose-image" id="preview">
         </div>
-    </div>
+    </form>
 </section>

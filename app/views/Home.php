@@ -1,12 +1,4 @@
 <div>
-    <nav class="nav">
-        <a class="logo" href="/">Inkwell</a>
-        <ul class="nav-link--wrapper">
-            <a class="link" href="/register">Register</a>
-            <a class="link" href="/login">Login</a>
-        </ul>
-    </nav>
-
     <section class="home-header">
         <div style="flex: 1;">
             <p class="home-header--title"><span class="quill">Quill</span> Ready?</p>
@@ -53,7 +45,7 @@
                     <span class="story-mins">2 mins read</span>
                 </div>
                 <div style="flex:1;">
-                <div class="story-title">
+                    <div class="story-title">
                         <a href="/story/2">
                             Autem aut sint voluptatibus.bus Autem aut sint voluptatibus Autem aut
                         </a>

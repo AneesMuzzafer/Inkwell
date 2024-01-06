@@ -1,6 +1,10 @@
 <div>
 
-    <?php if ($story->id != 1) : ?>
+    <?php
+
+    use App\Services\Auth;
+
+    if (!Auth::isAuth()) : ?>
         <nav class="nav">
             <a class="logo" href="/">Inkwell</a>
             <ul class="nav-link--wrapper">

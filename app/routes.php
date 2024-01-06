@@ -1,29 +1,39 @@
 <?php
 
-use App\Middlewares\Logger;
-use App\Models\Story;
+use App\Controllers\AuthController;
+use App\Controllers\StoryController;
+use App\Controllers\UserController;
+use App\Middlewares\HasSession;
+use App\Middlewares\IsAuth;
 use Core\Facade\Route;
 
-Route::get("/", function () {
-    return view("Home")->withLayout("layouts.DashboardLayout");
-});
 
-Route::get("/story/{story}", function (Story $story) {
-    return view("Story", ["story" => $story])->withLayout("layouts.DashboardLayout");
-});
+Route::get("/register", [AuthController::class, "showRegister"]);
 
-Route::get("/register", function () {
-    return view("Register")->withLayout("layouts.DashboardLayout");
-});
+Route::get("/login", [AuthController::class, "showLogin"]);
 
-Route::get("/login", function () {
-    return view("Login")->withLayout("layouts.DashboardLayout");
-});
+Route::get("/logout", [AuthController::class, "logout"]);
 
-Route::get("/profile", function () {
-    return view("Profile")->withLayout("layouts.DashboardLayout");
-});
+Route::post("/register", [AuthController::class, "register"]);
 
-Route::get("/compose", function () {
-    return view("Compose")->withLayout("layouts.DashboardLayout");
+Route::post("/login", [AuthController::class, "login"]);
+
+Route::group(["middleware" => [HasSession::class]], function () {
+
+    Route::get("/", [StoryController::class, "index"]);
+
+    Route::get("/story", [StoryController::class, "index"]);
+
+    Route::get("/story/{story}", [StoryController::class, "show"]);
+
+    Route::group(["middleware" => [IsAuth::class]], function () {
+
+        Route::get("/compose", [StoryController::class, "compose"]);
+
+        Route::post("/compose", [StoryController::class, "create"]);
+
+        Route::get("/profile", [UserController::class, "editProfile"]);
+
+        Route::put("/profile", [UserController::class, "updateProfile"]);
+    });
 });

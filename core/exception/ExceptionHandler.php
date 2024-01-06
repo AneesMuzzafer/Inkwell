@@ -45,7 +45,7 @@ class ExceptionHandler
         return null;
     }
 
-    public function formatErrorMessage(Exception $e, $title)
+    public function formatErrorMessage($e, $title)
     {
         $message = $e->getMessage();
         $class = get_class($e);

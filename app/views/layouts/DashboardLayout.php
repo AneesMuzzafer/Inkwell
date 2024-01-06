@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <?= component("components.Navbar") ?>
     {{ content }}
 </body>
 
