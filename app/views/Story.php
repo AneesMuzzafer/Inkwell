@@ -1,6 +1,6 @@
 <div>
 
-    <?php if ($id != 1) : ?>
+    <?php if ($story->id != 1) : ?>
         <nav class="nav">
             <a class="logo" href="/">Inkwell</a>
             <ul class="nav-link--wrapper">
@@ -30,30 +30,34 @@
         <span> Back to Home</span>
     </a>
 
+    <!-- <?php dump($story->user()); ?> -->
+
     <section class="stories-wrapper" style="padding: 0 var(--spx);">
         <div class="story">
             <div class="story-head">
+                <img class="story-user-image" src="<?= $story->user()->image ?>">
                 <div class="story-head-left">
-                    <span class="story-user-name">Bianca Pacheco</span>
+                    <span class="story-user-name"><?= $story->user()->username ?></span>
                     <span class="story-time">Dec 31, 2022</span>
                 </div>
                 <div class="story-head-right">
                     <span class="story-mins">2 mins read</span>
-                    <span class="story-category">Gaming</span>
+                    <span class="story-category"><?= $story->category()->name ?></span>
                 </div>
             </div>
-            <img class="story-img-lg" src="http://dl.fujifilm-x.com/global/products/cameras/gfx100s/sample-images/gfx100s_sample_02_eibw.jpg?_ga=2.203782416.1852843908.1704352190-106227692.1704352190" />
+            <img class="story-img-lg" src="<?= $story->image ?>" />
             <div class="likes-row">
                 <div style="cursor: pointer;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
                         <path fill="var(--text-gray)" d="M178 34c-21 0-39.26 9.47-50 25.34C117.26 43.47 99 34 78 34a60.07 60.07 0 0 0-60 60c0 29.2 18.2 59.59 54.1 90.31a334.68 334.68 0 0 0 53.06 37a6 6 0 0 0 5.68 0a334.68 334.68 0 0 0 53.06-37C219.8 153.59 238 123.2 238 94a60.07 60.07 0 0 0-60-60m-50 175.11C111.59 199.64 30 149.72 30 94a48.05 48.05 0 0 1 48-48c20.28 0 37.31 10.83 44.45 28.27a6 6 0 0 0 11.1 0C140.69 56.83 157.72 46 178 46a48.05 48.05 0 0 1 48 48c0 55.72-81.59 105.64-98 115.11" />
                     </svg>
                 </div>
-                <span class="story-likes">2 people liked this.</span>
+                <span class="story-likes"><?= $story->likes ?> people liked this.</span>
             </div>
-            <div class="story-title">Autem aut sint voluptatibus.bus Autem aut sint voluptatibus Autem aut</div>
+            <div class="story-title"><?= $story->title ?></div>
             <div class="story-content-lg">
-                In 2021 I landed my dream job. Working at Apple, the holy grail of minimalistic
+                <?= $story->content ?>
+                <!-- In 2021 I landed my dream job. Working at Apple, the holy grail of minimalistic
                 design, innovation and creativity yoyo yoyo. A place where misfits have a seat o
                 n the table and In 2021 I landed my dream job. Working at Apple, the holy grail of
                 minimalistic design here, innovation and creativity. A place where misfits have a s
@@ -119,7 +123,7 @@
                 minimalistic design here, innovation and creativity. A place where misfits have a s
                 eat on the table and In 2021 I landed my dream job. Working at Apple, the holy gra
                 il of minimalistic design, innovation and creativity. A place where misfits have a
-                seat on the table and
+                seat on the table and -->
             </div>
         </div>
     </section>

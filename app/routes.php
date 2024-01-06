@@ -1,14 +1,15 @@
 <?php
 
 use App\Middlewares\Logger;
+use App\Models\Story;
 use Core\Facade\Route;
 
 Route::get("/", function () {
     return view("Home")->withLayout("layouts.DashboardLayout");
 });
 
-Route::get("/story/{id}", function ($id) {
-    return view("Story", ["id" => $id])->withLayout("layouts.DashboardLayout");
+Route::get("/story/{story}", function (Story $story) {
+    return view("Story", ["story" => $story])->withLayout("layouts.DashboardLayout");
 });
 
 Route::get("/register", function () {
