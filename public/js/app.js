@@ -56,6 +56,10 @@ function submitForm() {
     document.getElementById("category-form").submit();
 }
 
+function submitCompose() {
+    document.getElementById("form-compose").submit();
+}
+
 function next() {
     pageElement = document.getElementById("page");
     pageElement.value = +pageElement.value + 1;

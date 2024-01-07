@@ -2,6 +2,8 @@
     <?php
 
     use App\Models\Category;
+    use App\Models\Story;
+    use App\Models\User;
     use App\Services\Auth;
 
     if (!Auth::isAuth()) : ?>
@@ -34,8 +36,8 @@
 
             <label for="sortBy">Sort By</label>
             <select id="sortBy" name="sortBy" class="category-dropdown" onchange="submitForm()">
-                <option value="ASC" <?= $sortBy == "ASC" ? "selected" : ""  ?>>Latest</option>
-                <option value="DESC" <?= $sortBy == "DESC" ? "selected" : "" ?>>Oldest</option>
+                <option value="DESC" <?= $sortBy == "DESC" ? "selected" : ""  ?>>Latest</option>
+                <option value="ASC" <?= $sortBy == "ASC" ? "selected" : "" ?>>Oldest</option>
             </select>
 
             <input hidden id="page" value="<?= $page ?>" name="page" />
@@ -53,7 +55,7 @@
 
         <?php foreach ($stories as $story) : ?>
             <div class="home-story">
-                <img class="story-img" src="<?= $story->image ?>" />
+                <img class="story-img" src="<?= !is_null($story->image) ? "../" . $story->image : Story::DEFAULT_IMAGE ?>" />
                 <div class="story-body">
                     <div class="story-header">
                         <span class="story-category"><?= $story->category->name ?></span>
@@ -68,7 +70,7 @@
                         <div class="story-content"><?= $story->content ?></div>
                     </div>
                     <div class="story-footer">
-                        <img class="story-user-image" src="<?= $story->user->image ?>">
+                        <img class="story-user-image" src="<?= !is_null($story->user->image) ? "../" . $story->user->image : User::DEFAULT_IMAGE ?>">
                         <span class="story-user-name"><?= $story->user->username ?></span>
                         <span class="story-dot">.</span>
                         <span class="story-time"><?= date("M j, Y", strtotime($story->created_at)) ?></span>

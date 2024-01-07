@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Services\Auth;
 
 if (!Auth::isAuth()) : ?>
@@ -15,13 +16,14 @@ if (!Auth::isAuth()) : ?>
 
     <nav class="nav" style="padding: 0 100px;">
         <a class="logo" href="/">Inkwell</a>
+
         <div class="nav-link--wrapper">
-            <a class="button-outlined" href="/category">Create Category</a>
-            <a class="button-outlined" href="/compose">Compose</a>
-            <a class="link" href="/profile">
-                <img class="story-user-image" src="../<?=Auth::user()->image?>">
+            <a class="link" href="/category">Category</a>
+            <a class="compose-button" href="/compose">Compose</a>
+            <a href="/profile" class="topbar-profile">
+                <img class="story-user-image" src="<?= !is_null(Auth::user()->image) ? "../" . Auth::user()->image : User::DEFAULT_IMAGE?>">
+                <span style="margin-left: 1rem; font-weight: 600;"><?= Auth::user()->username ?></span>
             </a>
-            <a class="link" href="/logout">Logout</a>
         </div>
     </nav>
 

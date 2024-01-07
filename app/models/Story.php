@@ -26,7 +26,7 @@ class Story extends Model
         $options = [
             "limit" => static::PAGE_SIZE,
             "orderBy" => "created_at",
-            "sortDir" => "ASC",
+            "sortDir" => "DESC",
             "offset" => 0
         ];
 
@@ -35,7 +35,7 @@ class Story extends Model
         if (count($data) == 0) {
             return [static::fetch($conditions, $options), [
                 "category" => "all",
-                "sortBy" => "ASC",
+                "sortBy" => "DESC",
                 "page" => 1,
                 "search" => "",
             ]];

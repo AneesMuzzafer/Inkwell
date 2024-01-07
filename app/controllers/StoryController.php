@@ -7,6 +7,7 @@ use App\Models\Like;
 use App\Models\Story;
 use App\Models\User;
 use App\Services\Auth;
+use App\Storage\FileStorage;
 use Core\Request\Request;
 
 class StoryController
@@ -42,6 +43,7 @@ class StoryController
 
         return view("Story", [
             "story" => $story,
+            "user" => $story->user(),
             "totalLikes" => $totalLikes,
             "isLiked" => $isLiked,
             "relatedStories" => $relatedStories,
@@ -58,6 +60,7 @@ class StoryController
         $data = $request->data();
         $user = Auth::user();
 
+
         $story = Story::create([
             "title" => $data["title"],
             "content" => $data["content"],
@@ -66,7 +69,16 @@ class StoryController
             "likes" => 0,
         ]);
 
-        return $this->show($story);
+        $file = $request->files()["storyImage"];
+
+        if (($file["error"] == 0)) {
+            $fileStorage = new FileStorage($request->files()["storyImage"], "post", $story->id);
+            $accessPath = $fileStorage->save();
+            $story->image = $accessPath;
+            $story->save();
+        }
+
+        return redirect("/story/$story->id");
     }
 
     public function like(Request $request)
@@ -100,8 +112,8 @@ class StoryController
             $story["user"] = (object) User::find($story["user_id"])->data();
             $story["category"] = (object) Category::find($story["category_id"])->data();
             $story["readTime"] = Story::readTime($story["content"]);
-            $story["image"] = $story["image"] ?? Story::DEFAULT_IMAGE;
-            $story["user"]->image = $story["user"]->image ?? User::DEFAULT_IMAGE;
+            // $story["image"] = $story["image"] ?? Story::DEFAULT_IMAGE;
+            // $story["user"]->image = $story["user"]->image ?? User::DEFAULT_IMAGE;
             $story["likes"] = count(Like::allWhere(["story_id" => $story["id"]]));
 
             return (object) $story;
