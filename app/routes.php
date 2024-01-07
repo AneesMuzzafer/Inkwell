@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\AuthController;
+use App\Controllers\CategoryController;
 use App\Controllers\StoryController;
 use App\Controllers\UserController;
 use App\Middlewares\HasSession;
@@ -34,6 +35,10 @@ Route::group(["middleware" => [HasSession::class]], function () {
 
         Route::get("/profile", [UserController::class, "editProfile"]);
 
-        Route::put("/profile", [UserController::class, "updateProfile"]);
+        Route::post("/profile", [UserController::class, "updateProfile"]);
+
+        Route::get("/category", [CategoryController::class, "edit"]);
+
+        Route::post("/category", [CategoryController::class, "store"]);
     });
 });

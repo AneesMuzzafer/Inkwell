@@ -218,6 +218,7 @@ a:focus {
     height: 54px;
     border-radius: 27px;
     margin-right: 10px;
+    object-fit: cover;
 }
 
 .story-user-name {
