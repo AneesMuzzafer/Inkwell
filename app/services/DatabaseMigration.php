@@ -17,14 +17,16 @@ class DatabaseMigration
         $this->createCategoriesTable();
         $this->createStoriesTable();
         $this->createAccessTokensTable();
+        $this->createLikesTable();
     }
 
     public function down()
     {
+        $this->deleteLikesTable();
+        $this->deleteAccessTokensTable();
         $this->deleteStoriesTable();
         $this->deleteCategoriesTable();
         $this->deleteUsersTable();
-        $this->createAccessTokensTable();
     }
 
     public function execute($sql, $table = "", $action = "Create")
@@ -114,7 +116,26 @@ class DatabaseMigration
 
     public function deleteAccessTokensTable()
     {
-        $sql = "DROP TABLE IF EXISTS access_token";
+        $sql = "DROP TABLE IF EXISTS access_tokens";
         $this->execute($sql, "stories", "Delete");
+    }
+
+    public function createLikesTable()
+    {
+        $sql = "CREATE TABLE likes (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+            story_id INT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(id),
+            FOREIGN KEY (story_id) REFERENCES stories(id)
+        )";
+        $this->execute($sql, "likes");
+    }
+
+    public function deleteLikesTable()
+    {
+        $sql = "DROP TABLE IF EXISTS likes";
+        $this->execute($sql, "likes", "Delete");
     }
 }

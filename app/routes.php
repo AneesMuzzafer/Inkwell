@@ -33,6 +33,8 @@ Route::group(["middleware" => [HasSession::class]], function () {
 
         Route::post("/compose", [StoryController::class, "create"]);
 
+        Route::post("/like-story", [StoryController::class, "like"]);
+
         Route::get("/profile", [UserController::class, "editProfile"]);
 
         Route::post("/profile", [UserController::class, "updateProfile"]);
@@ -40,5 +42,6 @@ Route::group(["middleware" => [HasSession::class]], function () {
         Route::get("/category", [CategoryController::class, "edit"]);
 
         Route::post("/category", [CategoryController::class, "store"]);
+
     });
 });

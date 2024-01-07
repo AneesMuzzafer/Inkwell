@@ -1,7 +1,7 @@
 <div>
     <?php
 
-    use App\Models\Story;
+    use App\Models\Category;
     use App\Services\Auth;
 
     if (!Auth::isAuth()) : ?>
@@ -20,6 +20,36 @@
     <?php endif; ?>
 
     <section class="stories-wrapper">
+
+        <form id="category-form" action="/" method="get">
+            <label for="category">Select Category</label>
+            <select id="category" name="category" class="category-dropdown" onchange="submitForm()">
+                <option value="all">All</option>
+                <?php foreach (Category::all() as $category) : ?>
+                    <option value="<?= $category["id"] ?>" <?= $selectedCategory == $category["id"] ? "selected" : ""  ?>>
+                        <?= $category["name"] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+
+            <label for="sortBy">Sort By</label>
+            <select id="sortBy" name="sortBy" class="category-dropdown" onchange="submitForm()">
+                <option value="ASC" <?= $sortBy == "ASC" ? "selected" : ""  ?>>Latest</option>
+                <option value="DESC" <?= $sortBy == "DESC" ? "selected" : "" ?>>Oldest</option>
+            </select>
+
+            <input hidden id="page" value="<?= $page ?>" name="page" />
+            <input hidden id="search" value="<?= $search ?>" name="search" />
+        </form>
+
+        <button onclick="previous()">Previous</button>
+        <button onclick="next()">Next</button>
+
+        <div>
+            <input id="search-text" value="">
+            <button onclick="doSearch()">Search</button>
+        </div>
+
 
         <?php foreach ($stories as $story) : ?>
             <div class="home-story">

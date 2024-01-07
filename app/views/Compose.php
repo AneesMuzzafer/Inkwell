@@ -1,16 +1,23 @@
+<?php
+
+use App\Models\Category;
+
+?>
+
 <div style="font-size: 24px; font-weight: 600; padding: 20px; padding-left: 100px;">Compose</div>
 
 <section class="compose">
-    <form class="write-container" method="post" action="/compose">
+    <form class="write-container" method="post" action="/compose" enctype="multipart/form-data">
         <div>
             <button type="submit" class="button-outlined">Publish</button>
         </div>
 
         <label for="category" style="margin-top: 2rem;">Category</label>
+
         <select id="category" name="category" class="category-dropdown">
-            <option value="1">Fiction</option>
-            <option value="2">Non-Fiction</option>
-            <option value="3">Poetry</option>
+            <?php foreach (Category::all() as $category) : ?>
+                <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
+            <?php endforeach; ?>
         </select>
 
         <label for="title" style="margin-top: 2rem;">Title</label>

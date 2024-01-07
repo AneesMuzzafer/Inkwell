@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Category;
+use App\Models\Like;
 use App\Models\Story;
 use App\Models\User;
 use App\Services\Auth;
@@ -11,18 +12,40 @@ use Core\Request\Request;
 class StoryController
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $stories = $this->generateStories(Story::all());
+        $data = $request->data();
 
-        return view("Home", ["stories" => $stories])->withLayout("layouts.DashboardLayout");
+        [$rawStories, $params] = Story::fetchFromParams($data);
+
+        $stories = $this->generateStories($rawStories);
+
+        return view("Home", [
+            "stories" => $stories,
+            "selectedCategory" => $params["category"],
+            "sortBy" => $params["sortBy"],
+            "page" => $params["page"],
+            "search" => $params["search"]
+        ])->withLayout("layouts.DashboardLayout");
     }
 
     public function show(Story $story)
     {
-        $relatedStories = array_slice($this->generateStories(Story::all()), 0, 3);
+        $totalLikes = count(Like::allWhere(["story_id" => $story->id]));
 
-        return view("Story", ["story" => $story, "relatedStories" => $relatedStories])->withLayout("layouts.DashboardLayout");
+        $isLiked = false;
+        if (Auth::isAuth()) {
+            $isLiked = Like::where(["user_id" => Auth::user()->id, "story_id" => $story->id]) != null;
+        }
+
+        $relatedStories = array_slice($this->generateStories(Story::allWhere(["id" => ["!=", $story->id]])), 0, 3);
+
+        return view("Story", [
+            "story" => $story,
+            "totalLikes" => $totalLikes,
+            "isLiked" => $isLiked,
+            "relatedStories" => $relatedStories,
+        ])->withLayout("layouts.DashboardLayout");
     }
 
     public function compose()
@@ -43,8 +66,32 @@ class StoryController
             "likes" => 0,
         ]);
 
+        return $this->show($story);
+    }
 
-        redirect("/story/$story->id");
+    public function like(Request $request)
+    {
+        $user = Auth::user();
+        $story_id = $request->data()["story_id"];
+        $liked = Like::where(["user_id" => $user->id, "story_id" => $story_id]);
+
+        if ($liked) {
+            Like::delete($liked->id);
+            $isLiked = false;
+        } else {
+            Like::create(
+                [
+                    "story_id" => $story_id,
+                    "user_id" => $user->id
+                ]
+            );
+            $isLiked = true;
+        }
+
+        return [
+            "status" => "success",
+            "isLiked" => $isLiked,
+        ];
     }
 
     public function generateStories($stories)
@@ -55,6 +102,7 @@ class StoryController
             $story["readTime"] = Story::readTime($story["content"]);
             $story["image"] = $story["image"] ?? Story::DEFAULT_IMAGE;
             $story["user"]->image = $story["user"]->image ?? User::DEFAULT_IMAGE;
+            $story["likes"] = count(Like::allWhere(["story_id" => $story["id"]]));
 
             return (object) $story;
         }, $stories);

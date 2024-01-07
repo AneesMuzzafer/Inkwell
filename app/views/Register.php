@@ -1,12 +1,4 @@
 <div>
-    <nav class="nav">
-        <a class="logo" href="/">Inkwell</a>
-        <ul class="nav-link--wrapper">
-            <a class="link" href="/register">Register</a>
-            <a class="link" href="/login">Login</a>
-        </ul>
-    </nav>
-
     <section class="register-body">
         <div class="register-container">
             <div class="register-form">

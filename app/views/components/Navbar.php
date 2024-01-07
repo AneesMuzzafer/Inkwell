@@ -19,7 +19,7 @@ if (!Auth::isAuth()) : ?>
             <a class="button-outlined" href="/category">Create Category</a>
             <a class="button-outlined" href="/compose">Compose</a>
             <a class="link" href="/profile">
-                <img class="story-user-image" src="<?=Auth::user()->image?>">
+                <img class="story-user-image" src="../<?=Auth::user()->image?>">
             </a>
             <a class="link" href="/logout">Logout</a>
         </div>
