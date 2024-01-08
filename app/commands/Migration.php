@@ -11,15 +11,15 @@ class Migration extends Command
     protected $key = "migrate";
     protected $description = "Custom migration handler.";
 
-    public function __construct(private Commander $commander, public DatabaseMigration $migration)
-    {
-        parent::__construct();
-    }
+    private $migration;
+    private $commander;
 
-    public function handle()
+    public function handle(Commander $commander, DatabaseMigration $migration)
     {
+
+        $this->commander = $commander;
+        $this->migration = $migration;
         console_log("Running migrations...");
-
         $args = $this->commander->getArgs();
 
         if (!isset($args[1])) {

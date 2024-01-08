@@ -60,6 +60,7 @@ class StoryController
         $data = $request->data();
         $user = Auth::user();
 
+        dump($data);
 
         $story = Story::create([
             "title" => $data["title"],

@@ -56,6 +56,10 @@ class Story extends Model
         $conditions["title"] = ["LIKE", "%$search%"];
 
         $options["sortDir"] = $sortBy;
+
+        if($page < 1) {
+            $page = 1;
+        }
         $options["offset"] = ($page - 1) * static::PAGE_SIZE;
 
         return [static::fetch($conditions, $options), [

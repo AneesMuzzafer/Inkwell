@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Core\Database\Database;
+use Core\Engine\ConsoleEngine;
 
 class DatabaseMigration
 {
