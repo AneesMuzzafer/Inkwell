@@ -60,8 +60,6 @@ class StoryController
         $data = $request->data();
         $user = Auth::user();
 
-        dump($data);
-
         $story = Story::create([
             "title" => $data["title"],
             "content" => $data["content"],
@@ -80,6 +78,44 @@ class StoryController
         }
 
         return redirect("/story/$story->id");
+    }
+
+    public function edit(Story $story)
+    {
+        if (Auth::user()->id != $story->user_id) {
+            redirect("/");
+        }
+        return view("Compose", ["story" => $story])->withLayout("layouts.DashboardLayout");
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $data = $request->data();
+
+        $story = Story::update($id, [
+            "title" => $data["title"],
+            "content" => $data["content"],
+            "category_id" => $data["category"],
+        ]);
+
+        $file = $request->files()["storyImage"];
+
+        if (($file["error"] == 0)) {
+            $fileStorage = new FileStorage($request->files()["storyImage"], "post", $story->id);
+            $accessPath = $fileStorage->save();
+            $story->image = $accessPath;
+            $story->save();
+        }
+
+        return redirect("/story/$story->id");
+    }
+
+    public function delete(Story $story)
+    {
+        if (Auth::user()->id == $story->user_id) {
+            Story::delete($story->id);
+        }
+        return redirect("/");
     }
 
     public function like(Request $request)
@@ -113,8 +149,6 @@ class StoryController
             $story["user"] = (object) User::find($story["user_id"])->data();
             $story["category"] = (object) Category::find($story["category_id"])->data();
             $story["readTime"] = Story::readTime($story["content"]);
-            // $story["image"] = $story["image"] ?? Story::DEFAULT_IMAGE;
-            // $story["user"]->image = $story["user"]->image ?? User::DEFAULT_IMAGE;
             $story["likes"] = count(Like::allWhere(["story_id" => $story["id"]]));
 
             return (object) $story;

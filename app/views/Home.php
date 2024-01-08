@@ -13,7 +13,7 @@
                 <p class="home-header--title"><span class="quill">Quill</span> Ready?</p>
                 <p class="home-header--subtitle" style="margin-bottom: 10px;">Inkwell Awaits Your Tale.</p>
                 <p class="home-header--subtitle">Your Ideas, Our Ink. Let's Start a Colorful Journey!</p>
-                <div class="button-outlined" style="margin-top: 2rem;">
+                <div class="button-outlined" style="margin-top: 3rem;">
                     <a href="/register">Dive In</a>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <button class="search-button" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
                         </svg></button>
-                    <input oninput="onSearchInput(this)"  id="search" placeholder="Search..." class="search-input" value="<?= $search ?>" name="search" />
+                    <input oninput="onSearchInput(this)" id="search" placeholder="Search..." class="search-input" value="<?= $search ?>" name="search" />
                     <button id="clear-search" class="clear-button" style="<?= $search ? "display:'inline-block;" : "display:none;" ?>" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4" />
                         </svg></button>
@@ -100,6 +100,7 @@
                 </svg>
             </button>
         </div>
+
 
     </section>
 </div>

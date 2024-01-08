@@ -17,6 +17,15 @@
 <body>
     <?= component("components.Navbar") ?>
     {{ content }}
+
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?>
+            <span style="font-weight: 500;">Inkwell</span> &nbsp; | &nbsp; Created by
+            <a style="font-weight: 500;" href="https://github.com/AneesMuzzafer">
+                Anees Muzzafer Shah
+            </a>
+        </p>
+    </footer>
 </body>
 
 </html>

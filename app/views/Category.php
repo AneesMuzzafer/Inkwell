@@ -1,6 +1,6 @@
-<div style="font-size: 24px; font-weight: 600; padding: 20px; padding-left: 100px; color: var(--text-gray)">All Categories</div>
 
-<section class="compose" style="flex-direction: column; padding: 0 var(--px); border: 0px;">
+<section class="compose" style="flex-direction: column; padding: 0 var(--px); border: 0px; height: calc(100vh - 140px);">
+    <div style="font-size: 24px; font-weight: 600; padding: 20px; color: var(--text-gray); ">All Categories</div>
     <div class="category-container" >
 
         <?php foreach ($categories as $category) : ?>

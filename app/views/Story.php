@@ -2,15 +2,27 @@
 
 use App\Models\Story;
 use App\Models\User;
+use App\Services\Auth;
+
 ?>
 <div>
 
-    <a class="back-home" href="/">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path fill="currentColor" fill-rule="evenodd" d="M10.53 2.97a.75.75 0 0 1 0 1.06L6.56 8l3.97 3.97a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
-        </svg>
-        <span> Back to Home</span>
-    </a>
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+        <a class="back-home" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path fill="currentColor" fill-rule="evenodd" d="M10.53 2.97a.75.75 0 0 1 0 1.06L6.56 8l3.97 3.97a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+            </svg>
+            <span> Back to Home</span>
+        </a>
+        <div style="display: flex; gap: 10px;">
+            <?php if (Auth::isAuth() && Auth::user()->id === $user->id) : ?>
+                <a class="compose-button" href="/story/edit/<?= $story->id ?>">
+                    Edit
+                </a>
+                <button class="compose-button" style="background-color: white; cursor:pointer;" onclick="confirmDeletionAction(<?= $story->id ?>)">Delete</button>
+            <?php endif; ?>
+        </div>
+    </div>
 
     <section class="stories-wrapper" style="padding: 0 var(--spx);">
         <div class="story">

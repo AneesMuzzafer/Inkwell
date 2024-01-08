@@ -17,7 +17,6 @@ class CategoryController {
     {
         Category::create($request->data());
 
-        $categories = Category::all();
-        return view("Category", ["categories" => $categories])->withLayout("layouts.DashboardLayout");
+        redirect("/category");
     }
 }

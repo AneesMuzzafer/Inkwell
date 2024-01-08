@@ -22,10 +22,16 @@ class AuthController
 
     public function register(Request $request)
     {
-
         $data = $request->data();
+
+        $email = $data["email"];
+
+        if (User::where(["email" => $email])) {
+            return view("Register", ["msg" => "Email already exists!"])->withLayout("layouts.DashboardLayout");
+        }
+
         if ($data["password"] != $data["confirm_password"]) {
-            return view("Register", ["password" => "Passwords do not match!"])->withLayout("layouts.DashboardLayout");
+            return view("Register", ["msg" => "Passwords do not match!"])->withLayout("layouts.DashboardLayout");
         }
 
         $hashedPassword = password_hash($data["password"], PASSWORD_BCRYPT);

@@ -125,7 +125,7 @@ a:focus {
 .home-header--title {
     font-family: var(--title);
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .quill {
@@ -145,7 +145,6 @@ a:focus {
     outline: none;
     border: solid 1px var(--green);
     background-color: white;
-    /* border-radius: 6px; */
     font-weight: 500;
     padding: 10px 48px;
     font-size: 18px;
@@ -268,7 +267,7 @@ a:focus {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 140px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -280,9 +279,12 @@ a:focus {
     border-radius: 15px;
     padding: 40px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     max-width: 600px;
     margin: 0 auto;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .register-form {
@@ -307,12 +309,45 @@ label {
     text-decoration: underline;
 }
 
+
+
+/* .register-container.glassmorphic {
+}
+
+.glassmorphic-text {
+    margin: 30px 0px;
+    font-weight: 500;
+    color: #111; /* Adjust text color for better visibility */
+/* }
+
+.glassmorphic-button-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.button-outlined.glassmorphic-button {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.button-outlined.glassmorphic-button:hover {
+    background: rgba(255, 255, 255, 0.5);
+} */
+
+ */
+
+
+
+
+
+
 .back-home {
     display: flex;
     justify-content: start;
     gap: 10px;
     align-items: center;
-    padding: 0 var(--spx);
+    /* padding: 0 var(--spx); */
     margin: 3rem 0px;
     cursor: pointer
 }
@@ -392,6 +427,7 @@ label {
     align-items: center;
     background-color: white;
     border-radius: 8px;
+
 }
 
 .edit-profile-container {
@@ -511,7 +547,7 @@ label {
     height: fit-content;
     border: none;
     border-bottom: 2px solid #ddd;
-    margin: 40px 0px;
+    margin: 20px 0px;
     font-size: 16px;
     resize: none;
     outline: none;
@@ -704,4 +740,20 @@ label {
     gap: 10px;
     border: solid 1px var(--gray);
     padding: 3rem;
+}
+
+footer {
+    background-color: #fefefe;
+    border-top: solid 1px var(--gray);
+    height: 60px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.login-message {
+    color: red;
 }

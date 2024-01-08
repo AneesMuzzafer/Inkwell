@@ -4,12 +4,16 @@ use App\Models\Category;
 
 ?>
 
-<section style="background-color: var(--shaded); padding: 3rem; height: calc(100vh - 80px);">
+<section style="background-color: var(--shaded); padding: 3rem;">
     <div class="compose">
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;  padding: 40px 40px 20px">
             <div style="font-size: 24px; font-weight: 600; align-self: flex-start;">Compose</div>
             <div style="margin: 0rem 0px;">
-                <button onclick="submitCompose()" type="submit" class="button-outlined">Publish</button>
+                <?php if (isset($story)) : ?>
+                    <button onclick="submitCompose()" type="submit" formaction="story/update/<?= $story->id ?>" class="button-outlined">Publish</button>
+                <?php else : ?>
+                    <button onclick="submitCompose()" type="submit" class="button-outlined">Publish</button>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -19,12 +23,13 @@ use App\Models\Category;
                 <label for="category" style="margin-top: 2rem;">Category</label>
                 <select required id="category" name="category" class="category-dropdown">
                     <?php foreach (Category::all() as $category) : ?>
-                        <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
+                        <option <?= isset($story) && ($story->category_id == $category["id"]) ? "selected" : "" ?> value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
                     <?php endforeach; ?>
                 </select>
 
+
                 <label for="title" style="margin-top: 3rem;">Title</label>
-                <input required type="text" id="title" name="title" class="input-field" placeholder="Enter your title">
+                <input required type="text" id="title" name="title" class="input-field" placeholder="Enter your title" value="<?= isset($story) ? $story->title : "" ?>">
 
                 <input hidden name="content" id="content">
 
@@ -53,12 +58,12 @@ use App\Models\Category;
 
                 </div>
 
-                <div id="editableContent" class="content-field" contenteditable="true"></div>
+                <div id="editableContent" class="content-field" contenteditable="true"><?= isset($story) ? $story->content : "" ?></div>
 
             </div>
 
             <div class="compose-image-container">
-                <img src="../assets/camera.jpg" class="compose-image" id="preview">
+                <img src="<?= isset($story) && !is_null($story->image) ? "../../$story->image" : "../../assets/camera.jpg" ?>" class="compose-image" id="preview">
                 <div class="file-input-container">
                     <input type="file" id="composeImage" name="storyImage" accept="image/jpeg, image/png" class="file-input" onchange="displayImage(this)">
                     <label for="composeImage" class="choose-image-button">Choose Image</label>

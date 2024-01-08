@@ -45,6 +45,6 @@ class UserController
 
         $user->save();
 
-        return view("Profile", ["data" => $user->data(), "msg" => "Profile updated successfully"])->withLayout("layouts.DashboardLayout");
+        return view("Profile", ["data" => $user->data(), "msg" => "Profile updated successfully!"])->withLayout("layouts.DashboardLayout");
     }
 }

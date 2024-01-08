@@ -153,3 +153,15 @@ if (clear) {
     // });
 
 // });
+
+
+function confirmDeletionAction(id) {
+    let userConfirmed = window.confirm("Are you sure you want to perform this action?");
+
+    if (userConfirmed) {
+        window.location.href = `/story/delete/${id}`;
+        // alert("Action performed!");
+    } else {
+        // alert("Action canceled.");
+    }
+}

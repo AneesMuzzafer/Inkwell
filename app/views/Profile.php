@@ -1,9 +1,11 @@
-<section style="background-color: var(--shaded); padding: 3rem; height: calc(100vh - 80px);">
+<section style="background-color: var(--shaded); padding: 3rem; height: calc(100vh - 140px);">
     <div class="profile">
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;  padding: 40px">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 40px">
             <div style="font-size: 24px; font-weight: 600; align-self: flex-start;">Edit Profile</div>
             <a class="compose-button" href="/logout">Logout</a>
         </div>
+        <p style="color: green;"><?php if (isset($msg)) echo $msg ?></p>
+
         <form style="display: flex; align-items: start; width: 100%;" method="post" action="/profile" enctype="multipart/form-data">
             <div class="profile-picture-container">
                 <img src="<?= $data["image"] ?>" class="profile-picture" id="preview">
