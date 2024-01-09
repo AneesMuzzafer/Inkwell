@@ -146,6 +146,9 @@ class StoryController
     public function generateStories($stories)
     {
         return array_map(function ($story) {
+
+            if(!isset($story["user_id"]) || !isset($story["category_id"]) ) { return ;}
+
             $story["user"] = (object) User::find($story["user_id"])->data();
             $story["category"] = (object) Category::find($story["category_id"])->data();
             $story["readTime"] = Story::readTime($story["content"]);

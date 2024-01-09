@@ -6,5 +6,5 @@ use Core\Model\Model;
 
 class User extends Model
 {
-    public const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+    public const DEFAULT_IMAGE = "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=1060&t=st=1704798645~exp=1704799245~hmac=a3ad058ebfc662f2fc97a6c95d51b7496d7f7c3707ba342f6e917ba9ab4d2843";
 }

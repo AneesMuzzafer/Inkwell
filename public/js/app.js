@@ -56,13 +56,20 @@ function submitForm() {
     document.getElementById("category-form").submit();
 }
 
-function submitCompose() {
+function submitCompose(action, id) {
     const editableContent = document.getElementById("editableContent");
     const content = document.getElementById("content");
 
     content.value = editableContent.innerHTML;
 
-    document.getElementById("form-compose").submit();
+    const form = document.getElementById("form-compose")
+    if (!form) return;
+
+    if (action === "update") {
+        form.action = "/story/update/" + id;
+    }
+
+    form.submit();
 }
 
 function next() {
@@ -99,58 +106,58 @@ if (clear) {
 }
 
 // document.addEventListener("DOMContentLoaded", function () {
-    // const editableContent = document.getElementById("editableContent");
+// const editableContent = document.getElementById("editableContent");
 
-    // if(editableContent){
-    //     editableContent.addEventListener("focusin", function() {
-    //         const editor = document.getElementById("editor");
-    //         editor.style.display = "flex";
-    //     })
+// if(editableContent){
+//     editableContent.addEventListener("focusin", function() {
+//         const editor = document.getElementById("editor");
+//         editor.style.display = "flex";
+//     })
 
-    //     editableContent.addEventListener("focusout", function() {
-    //         const editor = document.getElementById("editor");
-    //         editor.style.display = "none";
-    //     })
-    // }
+//     editableContent.addEventListener("focusout", function() {
+//         const editor = document.getElementById("editor");
+//         editor.style.display = "none";
+//     })
+// }
 
-    function applyStyle(style, value = null) {
-        if (document.queryCommandSupported(style)) {
-            document.execCommand(style, false, value);
-        } else {
-            console.error("Command not supported:", style);
-        }
+function applyStyle(style, value = null) {
+    if (document.queryCommandSupported(style)) {
+        document.execCommand(style, false, value);
+    } else {
+        console.error("Command not supported:", style);
     }
+}
 
-    function insertParagraphBreak() {
-        document.execCommand("insertParagraph", false, null);
+function insertParagraphBreak() {
+    document.execCommand("insertParagraph", false, null);
+}
+
+function createLink() {
+    const url = prompt("Enter the URL:");
+    if (url) {
+        applyStyle("createLink", url);
     }
+}
 
-    function createLink() {
-        const url = prompt("Enter the URL:");
-        if (url) {
-            applyStyle("createLink", url);
-        }
-    }
+// document.getElementById("boldButton").addEventListener("click", function () {
+//     applyStyle("bold");
+// });
 
-    // document.getElementById("boldButton").addEventListener("click", function () {
-    //     applyStyle("bold");
-    // });
+// document.getElementById("italicButton").addEventListener("click", function () {
+//     applyStyle("italic");
+// });
 
-    // document.getElementById("italicButton").addEventListener("click", function () {
-    //     applyStyle("italic");
-    // });
+// document.getElementById("underlineButton").addEventListener("click", function () {
+//     applyStyle("underline");
+// });
 
-    // document.getElementById("underlineButton").addEventListener("click", function () {
-    //     applyStyle("underline");
-    // });
+// document.getElementById("linkButton").addEventListener("click", function () {
+//     createLink();
+// });
 
-    // document.getElementById("linkButton").addEventListener("click", function () {
-    //     createLink();
-    // });
-
-    // document.getElementById("paragraphBreakButton").addEventListener("click", function () {
-    //     insertParagraphBreak();
-    // });
+// document.getElementById("paragraphBreakButton").addEventListener("click", function () {
+//     insertParagraphBreak();
+// });
 
 // });
 

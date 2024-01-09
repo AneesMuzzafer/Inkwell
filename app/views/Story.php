@@ -9,7 +9,7 @@ use App\Services\Auth;
     <div class="story-wrapper">
         <div style="display:flex; justify-content: space-between; align-items: center;">
             <a class="back-home" href="/">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
                     <path fill="currentColor" fill-rule="evenodd" d="M10.53 2.97a.75.75 0 0 1 0 1.06L6.56 8l3.97 3.97a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
                 </svg>
                 <span> Back to Home</span>
@@ -55,6 +55,18 @@ use App\Services\Auth;
             </div>
         </div>
 
+        <div style="margin-top: 2rem;">
+            <p style="font-size: 24px; font-weight: 700;  margin-bottom: 2rem;">Written By</p>
+
+            <div style="display: flex;">
+                <img class="story-user-image" src="<?= !is_null($user->image) ? "../" . $user->image : User::DEFAULT_IMAGE ?>">
+                <div class="story-head-left">
+                    <span class="story-user-name"><?= $user->username ?></span>
+                    <div style="font-size: 16px; font-weight: 400;"><?= $user->bio ?></div>
+                </div>
+            </div>
+        </div>
+
         <div class="story-divider">
             Suggested stories
         </div>
@@ -66,6 +78,7 @@ use App\Services\Auth;
                     <div class="story-header">
                         <span class="story-category"><?= $story->category->name ?></span>
                         <span class="story-mins"><?= $story->readTime ?> min<?= ($story->readTime == 1 ? "" : "s") ?> read</span>
+                        <a class="see-more" href="/story/<?= $story->id ?>">Read more</a>
                     </div>
                     <div style="flex:1;">
                         <div class="story-title">

@@ -4,20 +4,21 @@ use App\Models\Category;
 
 ?>
 
-<section style="background-color: var(--shaded); padding: 3rem;">
+<section class="compose-container">
     <div class="compose">
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;  padding: 40px 40px 20px">
+
+        <div class="compose-header">
             <div style="font-size: 24px; font-weight: 600; align-self: flex-start;">Compose</div>
-            <div style="margin: 0rem 0px;">
+            <div>
                 <?php if (isset($story)) : ?>
-                    <button onclick="submitCompose()" type="submit" formaction="story/update/<?= $story->id ?>" class="button-outlined">Publish</button>
+                    <button onclick="submitCompose('update', <?= $story->id ?>)" type="submit" class="button-outlined">Update</button>
                 <?php else : ?>
-                    <button onclick="submitCompose()" type="submit" class="button-outlined">Publish</button>
+                    <button onclick="submitCompose('create')" type="submit" class="button-outlined">Publish</button>
                 <?php endif; ?>
             </div>
         </div>
 
-        <form id="form-compose" style="display: flex; align-items: start; width: 100%; gap: 2rem;" method="post" action="/compose" enctype="multipart/form-data">
+        <form id="form-compose"  method="post" action="/compose" enctype="multipart/form-data">
             <div class="write-container">
 
                 <label for="category" style="margin-top: 2rem;">Category</label>
@@ -33,7 +34,7 @@ use App\Models\Category;
 
                 <input hidden name="content" id="content">
 
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <label for="content" style="margin-top: 2rem;">Content</label>
                     <div id="editor" class="editor-group" style="position: relative;">
                         <button class="editor-button" onclick="applyStyle('bold')" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

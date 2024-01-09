@@ -16,14 +16,19 @@
 
 <body>
     <?= component("components.Navbar") ?>
-    {{ content }}
+    <div style="min-height: calc(100vh - 140px);">
+        {{ content }}
+    </div>
 
     <footer>
-        <p>&copy; <?php echo date("Y"); ?>
-            <span style="font-weight: 500;">Inkwell</span> &nbsp; | &nbsp; Crafted with ❤️ by
-            <a style="font-weight: 500;" href="https://github.com/AneesMuzzafer">
-                Anees Muzzafer Shah
-            </a>
+        <p style="display: flex; flex-wrap: wrap; justify-content: center; row-gap: 5px;">&copy; <?php echo date("Y"); ?>
+            <span style="font-weight: 500;">&nbsp; Inkwell</span> &nbsp; | &nbsp;
+            <span>
+                Crafted with ❤️ by
+                <a style="font-weight: 500;" href="https://github.com/AneesMuzzafer">
+                    Anees Muzzafer Shah
+                </a>
+            </span>
         </p>
     </footer>
 </body>

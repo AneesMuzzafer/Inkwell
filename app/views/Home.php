@@ -12,10 +12,11 @@ if (!Auth::isAuth()) : ?>
             <p class="home-header--title"><span class="quill">Quill</span> Ready?</p>
             <p class="home-header--subtitle" style="margin-bottom: 10px;">Inkwell Awaits Your Tale.</p>
             <p class="home-header--subtitle">Your Ideas, Our Ink. Let's Start a Colorful Journey!</p>
-            <div class="button-outlined" style="margin-top: 3rem;">
+            <div class="button-outlined" style="margin-top: 3rem; background: transparent;">
                 <a href="/register">Dive In</a>
             </div>
         </div>
+        <div class="background-overlay"></div>
     </section>
 
 <?php endif; ?>
@@ -34,7 +35,7 @@ if (!Auth::isAuth()) : ?>
                             <path fill="currentColor" d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4" />
                         </svg></button>
                 </div>
-                <div class="dropdown-wrapper" style="flex:1; min-width: 200px;">
+                <div class="dropdown-wrapper" style="flex:1; min-width: 100px;">
                     <label style="margin-bottom: 10px; margin-left: 20px;" for="category">Select Category</label>
                     <select id="category" name="category" class="home-dropdown" onchange="submitForm()">
                         <option value="all">All</option>
@@ -45,7 +46,7 @@ if (!Auth::isAuth()) : ?>
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="dropdown-wrapper" style="flex:1; min-width: 200px; max-width: 400px;">
+                <div class="dropdown-wrapper" style="flex:1; min-width: 100px; max-width: 400px;">
                     <label style="margin-bottom: 10px; margin-left: 20px;" for="sortBy">Sort By</label>
                     <select id="sortBy" name="sortBy" class="home-dropdown" onchange="submitForm()">
                         <option value="DESC" <?= $sortBy == "DESC" ? "selected" : ""  ?>>Latest</option>
@@ -57,6 +58,8 @@ if (!Auth::isAuth()) : ?>
             <input hidden id="page" value="<?= 1 ?>" name="page" />
         </form>
 
+        <!-- <?php dump($stories) ?> -->
+
         <?php foreach ($stories as $story) : ?>
             <div class="home-story">
                 <img class="story-img" src="<?= !is_null($story->image) ? "../" . $story->image : Story::DEFAULT_IMAGE ?>" />
@@ -64,6 +67,7 @@ if (!Auth::isAuth()) : ?>
                     <div class="story-header">
                         <span class="story-category"><?= $story->category->name ?></span>
                         <span class="story-mins"><?= $story->readTime ?> min<?= ($story->readTime == 1 ? "" : "s") ?> read</span>
+                        <a class="see-more" href="/story/<?= $story->id ?>">Read more</a>
                     </div>
                     <div style="flex:1;">
                         <div class="story-title">
@@ -88,7 +92,9 @@ if (!Auth::isAuth()) : ?>
 
         <?php if (!count($stories)) : ?>
             <div class="empty-stories">
-                Nothing to show here! Back to&nbsp;<a style="font-size: inherit;" class="link" href="/">Home!</a>
+                <div style="text-align: center;">
+                    Nothing to show here! Back to&nbsp;<a style="font-size: inherit;" class="link" href="/">Home!</a>
+                </div>
             </div>
         <?php endif; ?>
 

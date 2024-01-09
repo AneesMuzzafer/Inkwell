@@ -7,7 +7,7 @@ use Core\Model\Model;
 class Story extends Model
 {
 
-    public const DEFAULT_IMAGE = "http://dl.fujifilm-x.com/global/products/cameras/gfx100s/sample-images/gfx100s_sample_02_eibw.jpg?_ga=2.203782416.1852843908.1704352190-106227692.1704352190";
+    public const DEFAULT_IMAGE = "https://cdn.pixabay.com/photo/2016/11/20/09/06/laptop-1842297_1280.jpg";
     public const PAGE_SIZE = 10;
 
     public function user()

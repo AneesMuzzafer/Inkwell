@@ -25,7 +25,7 @@ class UserController
         $data = $request->data();
 
         if ($data["password"] != $data["confirm_password"]) {
-            return view("Profile", ["data" => $user->data(), "password" => "Passwords do not match!"])->withLayout("layouts.DashboardLayout");
+            return view("Profile", ["data" => $user->data(), "err" => "Passwords do not match!"])->withLayout("layouts.DashboardLayout");
         }
 
         $user->username = $data["username"];
