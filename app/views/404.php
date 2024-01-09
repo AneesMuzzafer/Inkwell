@@ -1,1 +1,4 @@
-<h1>404! The resource could not be found.</h1>
+<div class="not-found">
+    <img src="../assets/404.jpg" class="not-found-img">
+    <span>The Plot Thickens, but the Page Evaporated!</span>
+</div>

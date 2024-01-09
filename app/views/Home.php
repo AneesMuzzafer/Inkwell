@@ -58,8 +58,6 @@ if (!Auth::isAuth()) : ?>
             <input hidden id="page" value="<?= 1 ?>" name="page" />
         </form>
 
-        <!-- <?php dump($stories) ?> -->
-
         <?php foreach ($stories as $story) : ?>
             <div class="home-story">
                 <img class="story-img" src="<?= !is_null($story->image) ? "../" . $story->image : Story::DEFAULT_IMAGE ?>" />

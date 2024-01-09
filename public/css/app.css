@@ -31,12 +31,6 @@ a:focus {
     --text-gray: #767474;
 }
 
-/* @media (min-width: 700px) and (max-width: 900) {
-    :root {
-        --px: 100px;
-    }
-} */
-
 @media (max-width:900px) {
     :root {
         --px: 20px;
@@ -934,4 +928,23 @@ footer {
 .see-more:hover {
     background-color: var(--text-gray);
     color: white;
+}
+
+.not-found {
+    height: calc(100vh - 140px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.not-found-img {
+    max-width: 250px;
+}
+
+.not-found > span {
+    font-family: var(--title);
+    font-size: 2rem;
+    text-align: center;
 }

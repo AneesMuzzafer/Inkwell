@@ -105,21 +105,6 @@ if (clear) {
     })
 }
 
-// document.addEventListener("DOMContentLoaded", function () {
-// const editableContent = document.getElementById("editableContent");
-
-// if(editableContent){
-//     editableContent.addEventListener("focusin", function() {
-//         const editor = document.getElementById("editor");
-//         editor.style.display = "flex";
-//     })
-
-//     editableContent.addEventListener("focusout", function() {
-//         const editor = document.getElementById("editor");
-//         editor.style.display = "none";
-//     })
-// }
-
 function applyStyle(style, value = null) {
     if (document.queryCommandSupported(style)) {
         document.execCommand(style, false, value);
@@ -139,36 +124,10 @@ function createLink() {
     }
 }
 
-// document.getElementById("boldButton").addEventListener("click", function () {
-//     applyStyle("bold");
-// });
-
-// document.getElementById("italicButton").addEventListener("click", function () {
-//     applyStyle("italic");
-// });
-
-// document.getElementById("underlineButton").addEventListener("click", function () {
-//     applyStyle("underline");
-// });
-
-// document.getElementById("linkButton").addEventListener("click", function () {
-//     createLink();
-// });
-
-// document.getElementById("paragraphBreakButton").addEventListener("click", function () {
-//     insertParagraphBreak();
-// });
-
-// });
-
-
 function confirmDeletionAction(id) {
     let userConfirmed = window.confirm("Are you sure you want to perform this action?");
 
     if (userConfirmed) {
         window.location.href = `/story/delete/${id}`;
-        // alert("Action performed!");
-    } else {
-        // alert("Action canceled.");
     }
 }
