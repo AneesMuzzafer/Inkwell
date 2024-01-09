@@ -247,7 +247,6 @@ a:focus {
     }
 }
 
-
 .story-body {
     display: flex;
     flex-direction: column;
@@ -899,12 +898,18 @@ footer {
 
 .empty-stories {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 400px;
     font-weight: 500;
     font-size: 18px;
+}
+
+.empty-image {
+    width: 100px;
+    margin-bottom: 20px;
 }
 
 .see-more {

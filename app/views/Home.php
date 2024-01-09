@@ -90,6 +90,7 @@ if (!Auth::isAuth()) : ?>
 
         <?php if (!count($stories)) : ?>
             <div class="empty-stories">
+                <img src="../assets/empty.svg" class="empty-image">
                 <div style="text-align: center;">
                     Nothing to show here! Back to&nbsp;<a style="font-size: inherit;" class="link" href="/">Home!</a>
                 </div>
