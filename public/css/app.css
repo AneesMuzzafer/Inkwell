@@ -218,7 +218,7 @@ a:focus {
 .story-wrapper {
     display: flex;
     flex-direction: column;
-    width: 950px;
+    width: 900px;
     padding: 20px;
 }
 
@@ -228,6 +228,7 @@ a:focus {
     display: flex;
     gap: 3rem;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .home-story:not(:last-child) {
@@ -235,19 +236,14 @@ a:focus {
 }
 
 .story-img {
-    width: 100%;
-    aspect-ratio: calc(16/9);
     object-fit: cover;
     width: 300px;
     height: 300px;
 }
 
 @media (max-width: 800px) {
-
     .story-img {
         width: 100%;
-        aspect-ratio: calc(16/9);
-        object-fit: cover;
     }
 }
 
