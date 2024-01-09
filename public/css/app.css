@@ -291,13 +291,12 @@ a:focus {
     max-width: 600px;
 }
 
-.story-content>a {
-    color: var(--green);
+.story-content a {
+    color: darkgreen;
     cursor: pointer;
 }
 
-.story-content>a:hover {
-    color: var(--green);
+.story-content a:hover {
     text-decoration: underline;
 }
 
@@ -436,13 +435,12 @@ label {
     font-size: 18px;
 }
 
-.story-content-lg>a {
-    color: var(--green);
+.story-content-lg a {
+    color: darkgreen;
     cursor: pointer;
 }
 
-.story-content-lg>a:hover {
-    color: var(--green);
+.story-content-lg a:hover {
     text-decoration: underline;
 }
 
@@ -690,11 +688,11 @@ label {
     overflow: auto;
 }
 
-.content-field>a {
-    color: var(--green);
+.content-field a {
+    color: darkgreen;
 }
 
-.content-field>a:hover {
+.content-field a:hover {
     color: var(--green);
     text-decoration: underline;
 }
@@ -944,7 +942,7 @@ footer {
     max-width: 250px;
 }
 
-.not-found > span {
+.not-found>span {
     font-family: var(--title);
     font-size: 2rem;
     text-align: center;
