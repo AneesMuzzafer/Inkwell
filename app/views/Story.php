@@ -5,26 +5,25 @@ use App\Models\User;
 use App\Services\Auth;
 
 ?>
-<div>
-
-    <div style="display:flex; justify-content: space-between; align-items: center;">
-        <a class="back-home" href="/">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                <path fill="currentColor" fill-rule="evenodd" d="M10.53 2.97a.75.75 0 0 1 0 1.06L6.56 8l3.97 3.97a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
-            </svg>
-            <span> Back to Home</span>
-        </a>
-        <div style="display: flex; gap: 10px;">
-            <?php if (Auth::isAuth() && Auth::user()->id === $user->id) : ?>
-                <a class="compose-button" href="/story/edit/<?= $story->id ?>">
-                    Edit
-                </a>
-                <button class="compose-button" style="background-color: white; cursor:pointer;" onclick="confirmDeletionAction(<?= $story->id ?>)">Delete</button>
-            <?php endif; ?>
+<div class="stories-container">
+    <div class="story-wrapper">
+        <div style="display:flex; justify-content: space-between; align-items: center;">
+            <a class="back-home" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                    <path fill="currentColor" fill-rule="evenodd" d="M10.53 2.97a.75.75 0 0 1 0 1.06L6.56 8l3.97 3.97a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 0" clip-rule="evenodd" />
+                </svg>
+                <span> Back to Home</span>
+            </a>
+            <div style="display: flex; gap: 10px;">
+                <?php if (Auth::isAuth() && Auth::user()->id === $user->id) : ?>
+                    <a class="compose-button" href="/story/edit/<?= $story->id ?>">
+                        Edit
+                    </a>
+                    <button class="compose-button" style="background-color: white; cursor:pointer;" onclick="confirmDeletionAction(<?= $story->id ?>)">Delete</button>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
 
-    <section class="stories-wrapper" style="padding: 0 var(--spx);">
         <div class="story">
             <div class="story-head">
                 <img class="story-user-image" src="<?= !is_null($user->image) ? "../" . $user->image : User::DEFAULT_IMAGE ?>">
@@ -55,13 +54,10 @@ use App\Services\Auth;
                 <?= $story->content ?>
             </div>
         </div>
-    </section>
 
-    <div class="story-divider">
-        Suggested stories
-    </div>
-
-    <section class="stories-wrapper">
+        <div class="story-divider">
+            Suggested stories
+        </div>
 
         <?php foreach ($relatedStories as $story) : ?>
             <div class="home-story">
@@ -92,5 +88,5 @@ use App\Services\Auth;
 
         <?php endforeach; ?>
 
-    </section>
+    </div>
 </div>

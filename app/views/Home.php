@@ -1,30 +1,30 @@
-<div>
-    <?php
+<?php
 
-    use App\Models\Category;
-    use App\Models\Story;
-    use App\Models\User;
-    use App\Services\Auth;
+use App\Models\Category;
+use App\Models\Story;
+use App\Models\User;
+use App\Services\Auth;
 
-    if (!Auth::isAuth()) : ?>
+if (!Auth::isAuth()) : ?>
 
-        <section class="home-header">
-            <div style="flex: 1;">
-                <p class="home-header--title"><span class="quill">Quill</span> Ready?</p>
-                <p class="home-header--subtitle" style="margin-bottom: 10px;">Inkwell Awaits Your Tale.</p>
-                <p class="home-header--subtitle">Your Ideas, Our Ink. Let's Start a Colorful Journey!</p>
-                <div class="button-outlined" style="margin-top: 3rem;">
-                    <a href="/register">Dive In</a>
-                </div>
+    <section class="home-header">
+        <div style="flex: 1;">
+            <p class="home-header--title"><span class="quill">Quill</span> Ready?</p>
+            <p class="home-header--subtitle" style="margin-bottom: 10px;">Inkwell Awaits Your Tale.</p>
+            <p class="home-header--subtitle">Your Ideas, Our Ink. Let's Start a Colorful Journey!</p>
+            <div class="button-outlined" style="margin-top: 3rem;">
+                <a href="/register">Dive In</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-    <?php endif; ?>
+<?php endif; ?>
+<div class="stories-container">
 
     <section class="stories-wrapper">
 
         <form id="category-form" action="/" method="get">
-            <div style="display: flex; align-items: end; gap: 1rem; width: 100%; margin-top: 2rem;">
+            <div style="display: flex; flex-wrap: wrap; align-items: end; gap: 1rem; width: 100%; margin-top: 2rem;">
                 <div class="search-wrapper">
                     <button class="search-button" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
@@ -34,7 +34,7 @@
                             <path fill="currentColor" d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4" />
                         </svg></button>
                 </div>
-                <div class="dropdown-wrapper" style="flex:1;">
+                <div class="dropdown-wrapper" style="flex:1; min-width: 200px;">
                     <label style="margin-bottom: 10px; margin-left: 20px;" for="category">Select Category</label>
                     <select id="category" name="category" class="home-dropdown" onchange="submitForm()">
                         <option value="all">All</option>
@@ -45,7 +45,7 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="dropdown-wrapper" style="flex:1;">
+                <div class="dropdown-wrapper" style="flex:1; min-width: 200px; max-width: 400px;">
                     <label style="margin-bottom: 10px; margin-left: 20px;" for="sortBy">Sort By</label>
                     <select id="sortBy" name="sortBy" class="home-dropdown" onchange="submitForm()">
                         <option value="DESC" <?= $sortBy == "DESC" ? "selected" : ""  ?>>Latest</option>
@@ -85,6 +85,12 @@
             </div>
 
         <?php endforeach; ?>
+
+        <?php if (!count($stories)) : ?>
+            <div class="empty-stories">
+                Nothing to show here! Back to&nbsp;<a style="font-size: inherit;" class="link" href="/">Home!</a>
+            </div>
+        <?php endif; ?>
 
         <div style="display: flex; justify-content: flex-end; width: 100%; margin: 2rem 0; gap: 1rem">
             <button <?= $page <= 1 ? "disabled" : "" ?> class="page-button" onclick="previous()">

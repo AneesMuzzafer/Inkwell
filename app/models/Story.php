@@ -8,7 +8,7 @@ class Story extends Model
 {
 
     public const DEFAULT_IMAGE = "http://dl.fujifilm-x.com/global/products/cameras/gfx100s/sample-images/gfx100s_sample_02_eibw.jpg?_ga=2.203782416.1852843908.1704352190-106227692.1704352190";
-    public const PAGE_SIZE = 3;
+    public const PAGE_SIZE = 10;
 
     public function user()
     {

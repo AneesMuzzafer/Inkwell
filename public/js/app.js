@@ -86,8 +86,8 @@ function onSearchInput(input) {
         clear.style.display = 'inline-block';
     } else {
         clear.style.display = 'none';
+        submitForm();
     }
-    console.log(input.value)
 }
 
 if (clear) {

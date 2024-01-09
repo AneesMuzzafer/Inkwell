@@ -20,7 +20,7 @@
 
     <footer>
         <p>&copy; <?php echo date("Y"); ?>
-            <span style="font-weight: 500;">Inkwell</span> &nbsp; | &nbsp; Created by
+            <span style="font-weight: 500;">Inkwell</span> &nbsp; | &nbsp; Crafted with ❤️ by
             <a style="font-weight: 500;" href="https://github.com/AneesMuzzafer">
                 Anees Muzzafer Shah
             </a>

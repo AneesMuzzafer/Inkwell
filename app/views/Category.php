@@ -9,6 +9,7 @@
 
     </div>
 
+    <p style="color: red; margin-top: 2rem;"><?php if (isset($msg)) echo $msg ?></p>
 
     <form class="write-container" style="border: none;" method="post" action="/category">
 
