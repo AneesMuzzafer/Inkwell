@@ -8,7 +8,7 @@
                 <p class="login-message"><?php if (isset($msg)) echo $msg ?></p>
 
                 <form method="post" action="/login">
-                    <label for="email">Username</label>
+                    <label for="email">Email</label>
                     <input style="background: transparent; border-color: #999;" type="text" id="email" name="email" class="input-field" required>
 
                     <label for="password">Password</label>
