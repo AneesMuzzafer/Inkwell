@@ -2,7 +2,7 @@
 
 Welcome to **Inkwell**, a unique platform where storytelling takes center stage. More than just a collection of captivating tales, Inkwell is a tribute to simplicity, and the art of going back to basics.
 
-### Explore Inkwell [here](https://inkwell.anees.com/).
+### Explore Inkwell [here](https://inkwell.anees.dev).
 
 ## The Genesis
 
@@ -23,7 +23,7 @@ But Inkwell is more than a platform; it's a community. While readers can explore
 
 Whether you're a passionate reader or an aspiring writer, Inkwell welcomes you to join the platform and be a part of the community.
 
-### [Visit Inkwell Now](https://inkwell.anees.com/)
+### [Visit Inkwell Now](https://inkwell.anees.dev/)
 
 
 ## Contributing
