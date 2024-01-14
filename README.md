@@ -19,7 +19,7 @@ Step into Inkwell, and you'll find yourself immersed in a world of captivating t
 
 But Inkwell is more than a platform; it's a community. While readers can explore a myriad of stories, only those with accounts can contribute their narratives to the ever-expanding tapestry. Write your own story, share your experiences, and connect with fellow storytellers.
 
-## Join Us on Inkwell!
+## Join Inkwell!
 
 Whether you're a passionate reader or an aspiring writer, Inkwell welcomes you to join the platform and be a part of the community.
 
