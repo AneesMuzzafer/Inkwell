@@ -81,7 +81,7 @@ if (!Auth::isAuth()) : ?>
                         <span class="story-dot">.</span>
                         <span class="story-time"><?= date("M j, Y", strtotime($story->created_at)) ?></span>
                         <span class="story-dot">.</span>
-                        <span class="story-likes"><?= $story->likes ?> likes</span>
+                        <span class="story-likes"><?= $story->likes ?> like<?= $story->likes !== 1 ? "s" : "" ?></span>
                     </div>
                 </div>
             </div>
