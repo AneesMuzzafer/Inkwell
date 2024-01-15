@@ -13,7 +13,7 @@ class IsAuth
     {
         if (!Auth::isAuth()) {
             app()->make(Response::class)->setStatusCode(401);
-            return view("/login", ["msg" => "Login to start writing your tale!"])->withLayout("layouts.DashboardLayout");
+            return view("Login", ["msg" => "Login to start writing your tale!"])->withLayout("layouts.DashboardLayout");
         }
 
         return $next($request);
