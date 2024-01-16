@@ -29,11 +29,13 @@ if (!Auth::isAuth()) : ?>
                 <div class="search-wrapper">
                     <button class="search-button" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
-                        </svg></button>
+                        </svg>
+                    </button>
                     <input oninput="onSearchInput(this)" id="search" placeholder="Search..." class="search-input" value="<?= $search ?>" name="search" />
                     <button id="clear-search" class="clear-button" style="<?= $search ? "display:'inline-block;" : "display:none;" ?>" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4" />
-                        </svg></button>
+                        </svg>
+                    </button>
                 </div>
                 <div class="dropdown-wrapper" style="flex:1; min-width: 100px;">
                     <label style="margin-bottom: 10px; margin-left: 20px;" for="category">Select Category</label>
@@ -97,7 +99,7 @@ if (!Auth::isAuth()) : ?>
             </div>
         <?php endif; ?>
 
-        <div style="display: flex; justify-content: flex-end; width: 100%; margin: 2rem 0; gap: 1rem">
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; width: 100%; margin: 2rem 0; gap: 1rem">
             <button <?= $page <= 1 ? "disabled" : "" ?> class="page-button" onclick="previous()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41" />

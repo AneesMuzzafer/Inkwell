@@ -748,6 +748,7 @@ label {
     border: none;
     background-color: inherit;
     flex: 1;
+    width: 100px;
     font-size: 20px;
 }
 
